@@ -22,11 +22,11 @@ function showTime() {
     let hour = today.getHours();
 
     if (hour > 18 || hour < 6) {
-      document.body.style.backgroundImage = "url('/assets/img/night.jpg')";
+      document.body.style.backgroundImage = "url('assets/img/night.jpg')";
       greeting.textContent = 'Доброй ночи,';
       document.body.style.color = "white";
     } else if ( hour > 6) {
-      document.body.style.backgroundImage = "url('/assets/img/day.jpg')";
+      document.body.style.backgroundImage = "url('assets/img/day.jpg')";
       greeting.textContent = 'Добрый день,';
     }
   };
