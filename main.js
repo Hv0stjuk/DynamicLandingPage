@@ -1,7 +1,7 @@
 const time = document.getElementById('time');
 const greeting = document.getElementById('greeting');
 const nam = document.getElementById('name');
-const focus = document.getElementById('focus');
+const task = document.getElementById('task');
 
 function showTime() {
   let today = new Date();
@@ -9,7 +9,7 @@ function showTime() {
   let minutes = today.getMinutes();
   let seconds = today.getSeconds();
   
-  time.innerHTML = `${hour}<span>:</span>${addZero(minutes)}<span>:</span>${addZero(seconds)}`;
+  time.innerHTML = `<span class="fix">${hour}</span><span>:</span><span class="fix">${addZero(minutes)}</span><span>:</span><span class="fix">${addZero(seconds)}</span>`;
   setTimeout(showTime, 1000);
 
   function addZero(n) {
@@ -55,10 +55,10 @@ function setName(e) {
 };
 
 function getFocus() {
-  if (localStorage.getItem('focus') === null) {
-    focus.textContent = '[Введите задачу на сегодня]';
+  if (localStorage.getItem('task') === null) {
+    task.textContent = '[Введите задачу на сегодня]';
   } else {
-      focus.textContent = localStorage.getItem('focus');
+    task.textContent = localStorage.getItem('task');
   }
 };
 getFocus();
@@ -67,14 +67,40 @@ function setFocus(e) {
   if(e.type === 'keypress') {
     if(e.wich == 13 || e.keyCode == 13) {
       localStorage.setItem('focus', e.target.innerText);
-      nam.blur();
+      // task.blur();
     }
   } else {
-    localStorage.setItem(focus, e.target.innerText);
+    localStorage.setItem('task', e.target.innerText);
   }
 };
 
+
+nam.addEventListener('focus', () => {
+  if (nam.textContent ==='[Введите Ваше имя]') {
+    nam.textContent = '';
+  }
+});
+
+nam.addEventListener('blur', () => {
+  if (nam.textContent ==='') {
+    nam.textContent = '[Введите Ваше имя]';
+  }
+});
+
+task.addEventListener('focus', () => {
+  if (task.textContent === '[Введите задачу на сегодня]') {
+    task.textContent = ''
+  }
+});
+
+task.addEventListener('blur', () => {
+  if (task.textContent === '') {
+    task.textContent = '[Введите задачу на сегодня]';
+  }
+});
+
+
 nam.addEventListener('keypress', setName);
 nam.addEventListener('blur', setName);
-focus.addEventListener('keypress', setFocus);
-focus.addEventListener('blur', setFocus);
+task.addEventListener('keypress', setFocus);
+task.addEventListener('blur', setFocus);

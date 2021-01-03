@@ -16,6 +16,7 @@ body {
 }
 
 #time {
+  display: inline-block;
   font-size: 80px;
   font-weight: 700;
 }
@@ -26,5 +27,17 @@ body {
 
 .h2 {
   margin-bottom: 5px;
-  opacity: 0.6;
+}
+
+#name {
+  min-width: 10%;
+}
+
+#task {
+  min-width: 10%;
+}
+
+.fix {
+  display: inline-block;
+  width: 100px;
 }
