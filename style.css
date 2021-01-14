@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  color: black;
+}
+
+#time {
+  display: inline-block;
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.h1 {
+  margin-bottom: 30px;
+}
+
+.h2 {
+  margin-bottom: 5px;
+}
+
+#name {
+  min-width: 10%;
+}
+
+#task {
+  min-width: 10%;
+}
+
+.fix {
+  display: inline-block;
+  width: 100px;
+}
